@@ -1,0 +1,19 @@
+Data Cleaning Using Python Pandas
+#importing pandas and Reading the csv File
+import pandas as pd
+df = pd.read_csv("C:\\Users\\yourname\\Desktop\\file.csv")
+df
+
+#Used to Check The Null Values in the CSV File
+df.isnull().sum()
+
+#Filling the Null Value of the Column Using Mean, Median and Mode 
+df["Bus_Ridership"]=df["Bus_Ridership"].fillna(df["Bus_Ridership"].mean())
+df
+df["Train_Ridership"]=df["Train_Ridership"].fillna(df["Train_Ridership"].mean())
+df
+df["PM2.5 (µg/m³)"]=df["PM2.5 (µg/m³)"].fillna(df["PM2.5 (µg/m³)"].mode()[0])
+df
+
+#Converting The Data into CSV File after Cleaning
+df.to_csv("Cleaned_Data_Pollution.csv")
